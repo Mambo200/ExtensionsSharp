@@ -133,3 +133,28 @@ namespace ArrayExtensions
 
     }
 }
+
+namespace FloatExtensions
+{
+    /// <summary>
+    /// Extensions for System.Single (float)
+    /// </summary>
+    public static class ExtFloat
+    {
+        /// <summary>
+        /// check if two values are in range
+        /// </summary>
+        /// <param name="_pos1">first position</param>
+        /// <param name="_pos2">second position</param>
+        /// <param name="_distance">allowed distance</param>
+        /// <returns><c>true</c>: both positions are in range; else <c>false</c></returns>
+        public static bool IsInRange(this float _pos1, float _pos2, float _distance)
+        {
+            if (_pos1 + _distance >= _pos2 &&
+                _pos1 - _distance <= _pos2)
+                return true;
+            else
+                return false;
+        }
+    }
+}
