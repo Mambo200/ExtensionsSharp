@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace StringExtensions
 {
@@ -156,5 +157,132 @@ namespace FloatExtensions
             else
                 return false;
         }
+    }
+}
+
+namespace Unity
+{
+    /// <summary>
+    /// Extensions for Unity
+    /// </summary>
+    public static class ExtVector3
+    {
+        /// <summary>
+        /// Check if two positions are in range
+        /// </summary>
+        /// <param name="_pos1">first position</param>
+        /// <param name="_pos2">secons position</param>
+        /// <param name="_distance">allowed distance</param>
+        /// <returns><c>true</c>: both positions are in range; else <c>false</c></returns>
+        public static bool IsInRange(this Vector3 _pos1, Vector3 _pos2, float _distance)
+        {
+            if (
+                FloatExtensions.ExtFloat.IsInRange(
+                    _pos1.x, 
+                    _pos2.x, 
+                    _distance) &&
+                    FloatExtensions.ExtFloat.IsInRange(
+                        _pos1.y,
+                        _pos2.y,
+                        _distance) &&
+                        FloatExtensions.ExtFloat.IsInRange(
+                            _pos1.z,
+                            _pos2.z,
+                            _distance)
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Check if two positions are in range. Ignores X Position
+        /// </summary>
+        /// <param name="_pos1">first position</param>
+        /// <param name="_pos2">secons position</param>
+        /// <param name="_distance">allowed distance</param>
+        /// <returns><c>true</c>: both positions are in range; else <c>false</c></returns>
+        public static bool IsInRangeNoX(this Vector3 _pos1, Vector3 _pos2, float _distance)
+        {
+            if (
+                FloatExtensions.ExtFloat.IsInRange(
+                    _pos1.y,
+                    _pos2.y,
+                    _distance) &&
+                    FloatExtensions.ExtFloat.IsInRange(
+                        _pos1.z,
+                        _pos2.z,
+                        _distance)
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Check if two positions are in range. Ignores Y Position
+        /// </summary>
+        /// <param name="_pos1">first position</param>
+        /// <param name="_pos2">secons position</param>
+        /// <param name="_distance">allowed distance</param>
+        /// <returns><c>true</c>: both positions are in range; else <c>false</c></returns>
+        public static bool IsInRangeNoY(this Vector3 _pos1, Vector3 _pos2, float _distance)
+        {
+            if (
+                FloatExtensions.ExtFloat.IsInRange(
+                    _pos1.x,
+                    _pos2.x,
+                    _distance) &&
+                    FloatExtensions.ExtFloat.IsInRange(
+                        _pos1.z,
+                        _pos2.z,
+                        _distance)
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Check if two positions are in range. Ignores Z Position
+        /// </summary>
+        /// <param name="_pos1">first position</param>
+        /// <param name="_pos2">secons position</param>
+        /// <param name="_distance">allowed distance</param>
+        /// <returns><c>true</c>: both positions are in range; else <c>false</c></returns>
+        public static bool IsInRangeNoZ(this Vector3 _pos1, Vector3 _pos2, float _distance)
+        {
+            if (
+                FloatExtensions.ExtFloat.IsInRange(
+                    _pos1.x,
+                    _pos2.x,
+                    _distance) &&
+                    FloatExtensions.ExtFloat.IsInRange(
+                        _pos1.y,
+                        _pos2.y,
+                        _distance)
+                )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }
